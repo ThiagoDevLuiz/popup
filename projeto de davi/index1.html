@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+            overflow: hidden; 
+        }
+
+        button {
+            position: fixed; 
+            right: 0; 
+            top: 0; 
+            margin: 30px; 
+            max-width: 100%;
+            padding: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        button img {
+            width: 50px;
+            height: auto;
+            text-align: center;
+        }
+
+        /* Estilos para o popup */
+        .popup {
+            display: none; /* Inicialmente escondido */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #00860b; /* Fundo verde */
+            padding: 20px; /* Espaçamento ao redor do conteúdo interno */
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000; /* Garante que o popup estará acima de outros elementos */
+            text-align: center;
+            max-width: 80%; /* Máximo de largura para evitar que o popup seja muito grande */
+        }
+
+        /* Estilos para a imagem dentro do popup */
+        .popup img {
+            max-width: 100%; /* A imagem ocupa até 100% da largura do popup */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
+        /* Estilos para o botão de fechar */
+        #closePopup {
+            background: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            position: absolute;
+            right: -55px;
+            top: -55px;
+            border-radius: 20%;
+            padding: 1px 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="btn btn-outline-success" id="openPopup">Programa de afiliados</button>
+    <div class="popup" id="popup">
+        <img src="" alt="Imagem do pop-up" id="popupImage">
+        <a href="https://www.jogodeouro.bet/bt" class="badge badge-success">Seja afiliado</a>
+        <button id="closePopup">x</button>
+    </div>
+
+    <script>
+        const openButton = document.getElementById('openPopup');
+        const popup = document.getElementById('popup');
+        const closeButton = document.getElementById('closePopup');
+        const popupImage = document.getElementById('popupImage');
+
+        openButton.addEventListener('click', function() {
+            const imagePath = 'Screenshot_20221226-174716_Gallery.jpg'; // Verifique este caminho
+            popupImage.src = imagePath;
+            popup.classList.add('show');
+        });
+
+        closeButton.addEventListener('click', function() {
+            popup.classList.remove('show');
+        });
+
+        popup.addEventListener('click', function(event) {
+            if (event.target == popup) {
+                popup.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
